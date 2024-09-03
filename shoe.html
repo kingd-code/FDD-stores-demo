@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FDD STORES - SHOES</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="function.js"></script>
+  <style>
+    .card-title{
+      font-size: 15px;
+    }
+    
+   @media only screen and (max-width: 500px) {
+    .card-title{
+      font-size: 15px;
+    }
+    span{
+     font-size: 11px;
+     display: block;
+     margin: 0;
+    }
+    
+    p{
+     margin: 0 0 0 0 ;
+    
+    }
+  }
+
+</style>
+</head>
+<body>
+  
+  <!-- nav bar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="index.html">FDD STORES</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="checkout.html">Checkout</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- nav bar ends -->
+
+  <!-- Products section -->
+  <div class="container-xxl" style="margin-top: 100px;">
+    <div class="container text-center">
+      <div class="row row-cols-2">
+        <div class="col"><div class="row">
+          <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+              <div class="card-body">
+                <img src="images/shoe1.jpg" style="width: 100px;">
+                <h5 class="card-title">Nike sneakers</h5>
+                <input type="hidden" id="shoDisc1" value="Nike sneakers">
+                <p class="card-text" style="color: green;" >&#8358;15,000</p>
+                <input type="hidden"  id="shoPrice1" value="15000">
+                <input type="checkbox" id="cBox1" onclick="modify( 'cBox1','qtySel1','shoDisc1')"> <span>Select</span>
+                <Button type="submit" onclick=" selQuantity('minus','qtySel1')">-</Button>
+                  <input type="text" style="width: 30px;" id="qtySel1">
+                  <button type="submit" onclick=" selQuantity('plus','qtySel1')">+</button>
+                <button class="btn btn-primary"  onclick="addToCart('qtySel1', 'shoDisc1', 'shoPrice1','cBox1')">Add to cart</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <img src="images/shoe2.jpg" style="width: 100px;">
+                <h5 class="card-title">Puma</h5>
+                <input type="hidden" id="shoDisc2" value="Puma">
+                <p class="card-text" style="color: green;" >&#8358;26,000</p>
+                <input type="hidden"  id="shoPrice2" value="26000">
+                <input type="checkbox" id="cBox2"> <span>Select</span>
+                <Button type="submit" onclick=" selQuantity('minus','qtySel2')">-</Button>
+                  <input type="text" style="width: 30px;" id="qtySel2">
+                  <button type="submit" onclick=" selQuantity('plus','qtySel2')">+</button>
+                <button class="btn btn-primary"  onclick="addToCart('qtySel2', 'shoDisc2', 'shoPrice2','cBox2')">Add to cart</button>
+              </div>
+            </div>
+          </div>
+        </div></div>
+        <div class="col"><div class="row">
+          <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+              <div class="card-body">
+                <img src="images/shoe3.jpg" style="width: 100px;">
+                <h5 class="card-title">Nike airforce</h5>
+                <input type="hidden" id="shoDisc3" value="Nike airforce">
+                  <p class="card-text" style="color: green;" >&#8358;35,000</p>
+                  <input type="hidden"  id="shoPrice3" value="35000">
+                  <input type="checkbox" id="cBox3"> <span>Select</span>
+                  <Button type="submit" onclick=" selQuantity('minus','qtySel3')">-</Button>
+                    <input type="text" style="width: 30px;" id="qtySel3">
+                    <button type="submit" onclick=" selQuantity('plus','qtySel3')">+</button>
+                  <button class="btn btn-primary"  onclick="addToCart('qtySel3', 'shoDisc3', 'shoPrice3','cBox3')">Add to cart</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <img src="images/shoe4.jpg" style="width: 100px;">
+                <h5 class="card-title">Addidas</h5>
+                <input type="hidden" id="shoDisc4" value="Addidas">
+                  <p class="card-text" style="color: green;" >&#8358;10,000</p>
+                  <input type="hidden"  id="shoPrice4" value="10000">
+                  <input type="checkbox" id="cBox4"> <span>Select</span>
+                  <Button type="submit" onclick=" selQuantity('minus','qtySel4')">-</Button>
+                    <input type="text" style="width: 30px;" id="qtySel4">
+                    <button type="submit" onclick=" selQuantity('plus','qtySel4')">+</button>
+                  <button class="btn btn-primary"  onclick="addToCart('qtySel4', 'shoDisc4', 'shoPrice4','cBox4')">Add to cart</button>
+              </div>
+            </div>
+          </div>
+        </div></div>
+        <div class="col" style="margin-top: 50px;">
+          <div class="row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+              <div class="card">
+                <div class="card-body">
+                  <img src="images/shoe5.jpg" style="width: 100px;">
+                  <h5 class="card-title">American classic</h5>
+                  <input type="hidden" id="shoDisc5" value="American classic">
+                    <p class="card-text" style="color: green;" >&#8358;13,000</p>
+                    <input type="hidden"  id="shoPrice5" value="13000">
+                    <input type="checkbox" id="cBox5"> <span>Select</span>
+                    <Button type="submit" onclick=" selQuantity('minus','qtySel5')">-</Button>
+                      <input type="text" style="width: 30px;" id="qtySel5">
+                      <button type="submit" onclick=" selQuantity('plus','qtySel5')">+</button>
+                    <button class="btn btn-primary"  onclick="addToCart('qtySel5', 'shoDisc5', 'shoPrice5','cBox5')">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <img src="images/shoe6.jpg" style="width: 100px;">
+                  <h5 class="card-title">Puma sceptre</h5>
+                  <input type="hidden" id="shoDisc6" value="Puma sceptre">
+                    <p class="card-text" style="color: green;" >&#8358;14,000</p>
+                    <input type="hidden"  id="shoPrice6" value="14000">
+                    <input type="checkbox" id="cBox6"> <span>Select</span>
+                    <Button type="submit" onclick=" selQuantity('minus','qtySel6')">-</Button>
+                      <input type="text" style="width: 30px;" id="qtySel6">
+                      <button type="submit" onclick=" selQuantity('plus','qtySel6')">+</button>
+                    <button class="btn btn-primary"  onclick="addToCart('qtySel6', 'shoDisc6', 'shoPrice6','cBox6')">Add to cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col" style="margin-top: 50px;">
+          <div class="row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+              <div class="card">
+                <div class="card-body">
+                  <img src="images/shoe7.jpg" style="width: 100px;">
+                  <h5 class="card-title">Allstars eagle</h5>
+                  <input type="hidden" id="shoDisc7" value="Allstars eagle">
+                    <p class="card-text" style="color: green;" >&#8358;22,000</p>
+                    <input type="hidden"  id="shoPrice7" value="22000">
+                    <input type="checkbox" id="cBox7"> <span>Select</span>
+                    <Button type="submit" onclick=" selQuantity('minus','qtySel7')">-</Button>
+                      <input type="text" style="width: 30px;" id="qtySel7">
+                      <button type="submit" onclick=" selQuantity('plus','qtySel7')">+</button>
+                    <button class="btn btn-primary"  onclick="addToCart('qtySel7', 'shoDisc7', 'shoPrice7','cBox7')">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <img src="images/shoe8.jpg" style="width: 100px;">
+                  <h5 class="card-title">Nike supra</h5>
+                  <input type="hidden" id="shoDisc8" value="Nike supra">
+                    <p class="card-text" style="color: green;" >&#8358;23,000</p>
+                    <input type="hidden"  id="shoPrice8" value="23000">
+                    <input type="checkbox" id="cBox8"> <span>Select</span>
+                    <Button type="submit" onclick=" selQuantity('minus','qtySel8')">-</Button>
+                      <input type="text" style="width: 30px;" id="qtySel8">
+                      <button type="submit" onclick=" selQuantity('plus','qtySel8')">+</button>
+                    <button class="btn btn-primary"  onclick="addToCart('qtySel8', 'shoDisc8', 'shoPrice8','cBox8')">Add to cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Products section ends -->
+
+
+</body>
+</html>

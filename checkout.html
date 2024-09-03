@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout</title>
+  <script src="./function.js"></script>
+  <style>
+    h2 {
+      text-align: center;
+    }
+
+    h4 {
+      text-align: center;
+    }
+
+    table {
+      border: 1px solid;
+      border-collapse: collapse;
+      width: 50%;
+      margin: auto;
+
+    }
+
+    td {
+      border: 1px solid;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h2>FDD STORE LTD</h2>
+    <h4>INVOICE</h4>
+    <h4 id="demo" style="margin-left: 40%;"></h4>
+
+    <script>
+      const myDate = new Date();
+      // windows.document.write(myDate);
+      let myYear = myDate.getFullYear();
+      let myMonth = myDate.getMonth();
+      switch (new Date().getMonth()) {
+        case 0:
+          myMonth = "January";
+          break;
+
+        case 1:
+          myMonth = "Feburary";
+          break;
+
+        case 2:
+          myMonth = "March";
+          break;
+
+        case 3:
+          myMonth = "April";
+          break;
+
+        case 4:
+          myMonth = "May";
+          break;
+
+        case 5:
+          myMonth = "June";
+          break;
+
+        case 6:
+          myMonth = "July";
+          break;
+
+        case 7:
+          myMonth = "August";
+          break;
+
+        case 8:
+          myMonth = "September";
+          break;
+
+        case 9:
+          myMonth = "October";
+          break;
+
+        case 10:
+          myMonth = "Novenber";
+          break;
+
+        case 11:
+          myMonth = "December";
+          break;
+      }
+
+      //  if (myMonth < 10){
+      //    myMonth = "0" + myMonth;
+      //  }
+
+
+      let myDay = myDate.getDate();
+      if (myDay < 10) {
+        myDay = "0" + myDay;
+      }
+      // alert(myYear + "-" + myMonth + "-" + myDay);
+      document.getElementById("demo").innerHTML = ("INVOICE DATE: " + myDay + " " + myMonth + "," + " " + myYear);
+    </script>
+  </div>
+
+  <div style="overflow-x: auto;">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>S/N</th>
+          <th>Item Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <div style="width: 50%; margin: auto; margin-top: 20px;">
+      <div style="width: 70%; float: left; right: 1000px;">
+        <button onclick="edit()">Edit</button>
+      </div>
+
+      <div style="width: 30%; float: left;">
+        <button>Pay</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+<script>
+ //adding the table body to the tbody 
+  function populate() {
+    var container = document.getElementById("tableBody");
+    container.innerHTML = "";
+    var total = 0;
+    cart.forEach((cartItem, index) => {
+      var sn = index + 1;
+      var desc = cartItem.description;
+      var qty = cartItem.quantity;
+      var cost = cartItem.unitcost;
+      var totalCost = cartItem.totalcost;
+      total = total + totalCost;
+
+      //creating a button as well as other td's
+      var clickMeButton = document.createElement("button");
+      clickMeButton.innerHTML = "Remove item";
+      clickMeButton.addEventListener("click", function () {
+        removeMe(index);
+      });
+      var snTd = document.createElement("td");
+      snTd.textContent = sn;
+      var descTd = document.createElement("td");
+      descTd.textContent = desc;
+      var qtyTd = document.createElement("td");
+      qtyTd.textContent = qty;
+      var costTd = document.createElement("td");
+      costTd.textContent = cost;
+      var totalCostTd = document.createElement("td");
+      totalCostTd.textContent = totalCost;
+
+      var singleRow = document.createElement("tr");
+      singleRow.appendChild(clickMeButton);
+      singleRow.appendChild(snTd);
+      singleRow.appendChild(descTd);
+      singleRow.appendChild(costTd);
+      singleRow.appendChild(qtyTd);
+      singleRow.appendChild(totalCostTd);
+      container.appendChild(singleRow);
+    });
+
+    var totalRow = document.createElement("tr");
+    totalRow.style.border = "none";
+
+    var spanTd = document.createElement("td");
+    spanTd.setAttribute("colspan", 3);
+    spanTd.style.border = "none";
+
+    var totalText = document.createElement("th");
+    totalText.textContent = "TOTAL";
+
+    var totalVal = document.createElement("th");
+    totalVal.textContent = total;
+    totalRow.appendChild(spanTd);
+    totalRow.appendChild(totalText);
+    totalRow.appendChild(totalVal);
+    container.appendChild(totalRow);
+  }
+  function edit() {
+    //history.back();
+    location.href = "index.html";
+  }
+
+  function removeMe(index) {
+    cart.splice(index, 1);
+    sessionStorage.itemCart = JSON.stringify(cart);
+    sessionStorage.itemindex = sessionStorage.itemindex - 1;
+    populate();
+    // location.href = "checkout.html";
+    // location.reload()
+  }
+  populate();
+  // }
+</script>
+
+</html>
